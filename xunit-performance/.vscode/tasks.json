@@ -1,0 +1,35 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "${workspaceRoot}/tools/dotnet/1.0.0/dotnet.exe",
+    "isShellCommand": true,
+    "args": [
+        "build",
+        "${workspaceRoot}/tests/simpleharness/simpleharness.csproj"
+    ],
+    "tasks": [
+        {
+            "taskName": "build-debug",
+            "args": [
+                "-c",
+                "debug"
+            ],
+            "isBuildCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$msCompile",
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "build-release",
+            "args": [
+                "-c",
+                "release"
+            ],
+            "isBuildCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$msCompile",
+            "suppressTaskName": true
+        }
+    ]
+}

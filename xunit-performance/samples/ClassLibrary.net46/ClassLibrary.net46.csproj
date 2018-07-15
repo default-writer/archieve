@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyTitle>ClassLibrary.net46</AssemblyTitle>
+    <TargetFramework>net46</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\xunit.performance.core\xunit.performance.core.csproj">
+      <FromP2P>true</FromP2P>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.2.0-beta2-build3300" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.1-rc2" />
+    <PackageReference Include="xunit.assert" Version="2.2.0-beta2-build3300" />
+    <PackageReference Include="xunit.core" Version="2.2.0-beta2-build3300" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.2.0-beta2-build3300" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.2.0-beta2-build3300" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0-beta2-build1149" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+  </PropertyGroup>
+
+</Project>

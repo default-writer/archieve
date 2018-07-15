@@ -1,0 +1,30 @@
+<Project>
+  <!--<Import Project="dependencies.props" />-->
+  <Import Project="$(MSBuildThisFileDirectory)/version.props" />
+
+  <PropertyGroup Label="Repository information">
+    <Product>Microsoft xUnit Performance Api</Product>
+    <RepositoryUrl>https://github.com/Microsoft/xunit-performance</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Build properties">
+    <Description>xUnit Performance Api</Description>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet package information">
+    <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/Microsoft/xunit-performance</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Microsoft/xunit-performance/master/LICENSE</PackageLicenseUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Signing">
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)common/xunit.performance.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
+  </PropertyGroup>
+</Project>

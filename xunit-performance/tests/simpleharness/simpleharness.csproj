@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Configuration">
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>
+      <!-- netstandard1.0; -->
+      <!-- netstandard1.1; -->
+      <!-- netstandard1.2; -->
+      <!-- netstandard1.3; -->
+      <!-- netstandard1.4; -->
+      <!-- netstandard1.5; -->
+      <!-- netstandard1.6; -->
+      netstandard2.0;
+      <!-- netcoreapp1.0; -->
+      <!-- netcoreapp1.1; -->
+      <!-- netcoreapp2.0; -->
+      netcoreapp2.1;
+      <!-- net20; -->
+      <!-- net35; -->
+      <!-- net40; -->
+      <!--net45;
+      net451;
+      net452;
+      net46;
+      net461;
+      net462;
+      net47;
+      net471;-->
+      net472;
+    </TargetFrameworks>
+    <TargetFrameworks Condition="'$(OS)' != 'Windows_NT'">netcoreapp1.0;netcoreapp1.1;netcoreapp2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="*.csv;*.etl;*.md;*.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\xunit.performance.api\xunit.performance.api.csproj" />
+    <ProjectReference Include="..\..\src\xunit.performance.core\xunit.performance.core.csproj" />
+    <ProjectReference Include="..\..\src\xunit.performance.execution\xunit.performance.execution.csproj" />
+    <!--<ProjectReference Include="..\..\src\xunit.performance.execution\xunit.performance.execution.csproj" />-->
+    <ProjectReference Include="..\..\src\xunit.performance.metrics\xunit.performance.metrics.csproj" />
+  </ItemGroup>
+
+</Project>
