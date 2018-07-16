@@ -1,0 +1,1 @@
+& .\.nuget\_NuGet

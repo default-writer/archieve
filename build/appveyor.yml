@@ -1,0 +1,26 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+version: 1.0.0.{build}-{branch}
+
+skip_tags: true
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+image: Visual Studio 2017
+
+environment:
+    SONARCLOUDTOKEN:
+        secure: M3l9SYJrD73aoBF99EQCzsiJDPdlaePK6lxYcnVLEhF2TL9OupY0ApriMfJK12s9
+    COVERALLS_REPO_TOKEN:
+        secure: cwLai3P4zgzInidPmgHoWnjTRlWW6hOA75eUoorKMfTi8oR4/oJjDDgXqO2uM6lj
+
+cache:
+    - packages -> **\packages.config
+
+build_script:
+    - dotnet restore
+    - ps: ./coverage.ps1

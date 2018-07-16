@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="$(MSBuildThisFileDirectory)../common.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>
+      <!-- netstandard1.0; -->
+      <!-- netstandard1.1; -->
+      <!-- netstandard1.2; -->
+      <!-- netstandard1.3; -->
+      <!-- netstandard1.4; -->
+      <!-- netstandard1.5; -->
+      <!-- netstandard1.6; -->
+      netstandard2.0;
+      <!-- netcoreapp1.0; -->
+      <!-- netcoreapp1.1; -->
+      <!-- netcoreapp2.0; -->
+      netcoreapp2.1;
+      <!-- net20; -->
+      <!-- net35; -->
+      <!-- net40; -->
+      net45;
+      net451;
+      net452;
+      net46;
+      net461;
+      net462;
+      net47;
+      net471;
+      net472;
+    </TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Platforms>AnyCPU</Platforms>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Artur Mustafin (hack2root)</Authors>
+    <Company>Artur Mustafin (hack2root)</Company>
+    <Description>.NET Core 2.1 Dependency Injection framework 
+Commit SHA: $(CommitHash)</Description>
+    <Copyright>Artur Mustafin (hack2root)</Copyright>
+    <PackageLicenseUrl>https://github.com/hack2root/build/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://hack2root.github.io/build/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hack2root/build.git</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Dependency Injection</PackageTags>
+    <PackageReleaseNotes>
+      Features:
+      - Added ASP.NET Core 2.1 middleware extensibility
+      - Added System.Func&lt;T&gt; type initialization
+      - Added TypeBuilder.GetInstance(...) methods
+    </PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageId>Build.DependencyInjection</PackageId>
+    <Version>$(BuildVersion)</Version>
+    <AssemblyVersion>$(BuildVersion)</AssemblyVersion>
+    <FileVersion>$(BuildVersion)</FileVersion>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".msbump" />
+    <None Remove="Settings.StyleCop" />
+    <None Remove="StyleCop.Cache" />
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+</Project>
