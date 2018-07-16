@@ -1,0 +1,35 @@
+{
+  "name": "Darkness",
+  "description": "Dark themes for popular websites",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Lior Grossman",
+  "homepage": "https://chrome.google.com/webstore/detail/darkness-beautiful-dark-t/imilbobhamcfahccagbncamhpnbkaenm",
+  "contributors": [
+    "Lior Grossman <lior@liorgrossman.com> (https://github.com/liorgrossman)"
+  ],
+  "bugs": {
+    "url": ""
+  },
+  "scripts": {
+    "install": "gulp install",
+    "start": "gulp sass:watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "del": "2.2.1",
+    "gulp": "3.9.1",
+    "gulp-json-transform": "0.4.5",
+    "gulp-rename": "1.2.2",
+    "gulp-replace": "0.5.4",
+    "gulp-sass": "4.0.0",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-util": "3.0.7",
+    "gulp-zip": "3.2.0",
+    "yargs": "6.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liorgrossman/darkness"
+  }
+}

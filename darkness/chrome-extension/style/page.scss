@@ -1,0 +1,98 @@
+//====================================================================================================================================================
+// Minimal CSS for the moon icon on the top-right corner of websites
+// The CSS is injected to supported websites only, upon page load
+// Does not include the settings panel and other dialog, which are loaded upon click
+//====================================================================================================================================================
+
+$darkness-z-index-base: 2147400000;
+$icon-width: 27px;
+$icon-diagonal-width: 38.1837661841px; // Pythagoras: sqrt(25^2*2)
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// Moon icon
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+div.drk_settings_icon {
+	z-index: $darkness-z-index-base !important;
+	cursor: pointer !important;
+	position: fixed !important;
+	right: 0 !important;
+	top: 0 !important;
+	width: $icon-width !important;
+	height: $icon-width !important;
+	pointer-events: none !important;
+	cursor: default !important;
+	background: Transparent url('chrome-extension://__MSG_@@extension_id__/images/darkness-icon-in-page.png?v=2') no-repeat center !important;
+	background-size: cover !important;
+	opacity: 0.8 !important;
+	transition: opacity .25s !important;
+	overflow: hidden !important;
+	&:hover {
+		opacity: 1 !important;
+		transition: opacity 0.03s !important;
+	}
+
+	.drk_settings_link {
+		position: absolute !important;
+		right: $icon-diagonal-width * -0.5 + 1px !important;
+		top: $icon-diagonal-width * -0.5 + 1px !important;
+		background: Transparent !important;
+		width: $icon-diagonal-width !important;
+		height: $icon-diagonal-width !important; 
+		transform: rotate(45deg) !important;
+		pointer-events: all !important;
+		cursor: pointer !important;
+	}
+}
+
+body[data-drk-promo="s"] div.drk_settings_icon {
+	background: Transparent url('chrome-extension://__MSG_@@extension_id__/images/darkness-icon-in-page-promo.png?v=2') no-repeat center !important;
+	background-size: cover !important;
+}
+
+body[data-drk-site-support="ask-developers"] div.drk_settings_icon {
+	background: Transparent url('chrome-extension://__MSG_@@extension_id__/images/darkness-icon-in-page-ask-developers.png?v=2') no-repeat center !important;
+	background-size: cover !important;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// Position the moon icon in the toolbar, adjust the toolbar (based on website)
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+body[data-drk-site="google"],
+body[data-drk-site="wikipedia"],
+body[data-drk-site="amazon"],
+body[data-drk-site="reddit"] {
+	div.drk_settings_icon {
+		position: absolute !important;
+	}
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// Global message to user (e.g. conflict found with another extension)
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+.drk_settings_global_msg {
+	-webkit-filter: invert(100%) !important;
+	display: none !important;
+	z-index: $darkness-z-index-base !important;
+	cursor: pointer !important;
+	position: fixed !important;
+	left: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	background: rgba(60, 60, 60, 0.97) !important;
+	box-shadow: 0 -2px -4px rgba(0, 0, 0, 1) !important;
+	text-shadow: none !important;
+	color: #ffd400 !important;
+	font-size: 14px !important;
+	font-family: Arial, sans-serif !important;
+	font-weight: normal !important;
+	padding: 15px 20px !important;
+	transition: opacity .25s ease-in-out !important;
+	.drk_settings_global_msg_close {
+		float: right;
+		padding-left: 30px !important;
+		color: #ddd !important;
+		display: inline-block !important;
+		text-decoration: underline !important;
+	}
+}
